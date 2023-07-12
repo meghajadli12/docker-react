@@ -1,0 +1,9 @@
+sudo: required
+services:
+- docker
+
+before_install:
+- docker build -t meghajadli/docker-react -f Dockerfile.dev .
+
+script:
+- docker run -e CI=true meghajadli/docker-react npm run test
